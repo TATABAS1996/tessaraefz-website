@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 57" width="230" height="57" role="img" aria-label="Tessarae Hospitality">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&amp;family=Inter:wght@300&amp;display=swap');
+      .wordmark {
+        font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        fill: #FDFAF6;
+      }
+      .submark {
+        font-family: 'Inter', Arial, Helvetica, sans-serif;
+        font-size: 8.5px;
+        font-weight: 300;
+        letter-spacing: 0.38em;
+        fill: #C4A882;
+        text-transform: uppercase;
+      }
+    </style>
+  </defs>
+
+  <!-- ── Tile mark ── -->
+  <!-- Row 0 -->
+  <rect x="0"  y="0"  width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="12" y="0"  width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="24" y="0"  width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="48" y="0"  width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <!-- Row 1 -->
+  <rect x="0"  y="12" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="12" y="12" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="36" y="12" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="48" y="12" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <!-- Row 2 -->
+  <rect x="0"  y="24" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="24" y="24" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="36" y="24" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <!-- Row 3 -->
+  <rect x="12" y="36" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="24" y="36" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="36" y="36" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="48" y="36" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <!-- Row 4 -->
+  <rect x="0"  y="48" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="12" y="48" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="36" y="48" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="48" y="48" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+
+  <!-- ── Wordmark ── -->
+  <text x="71" y="30" class="wordmark"><tspan>TESS</tspan><tspan fill="#8B7355">A</tspan><tspan>RAE</tspan></text>
+  <text x="73" y="46" class="submark">HOSPITALITY</text>
+</svg>

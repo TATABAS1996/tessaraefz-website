@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57 57" width="57" height="57" role="img" aria-label="Tessarae Hospitality mark">
+  <!-- 5x5 mosaic tile mark — each tile 9×9, gap 3px -->
+  <!-- Row 0 -->
+  <rect x="0"  y="0"  width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="12" y="0"  width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="24" y="0"  width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="48" y="0"  width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <!-- Row 1 -->
+  <rect x="0"  y="12" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="12" y="12" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="36" y="12" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="48" y="12" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <!-- Row 2 -->
+  <rect x="0"  y="24" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="24" y="24" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="36" y="24" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <!-- Row 3 -->
+  <rect x="12" y="36" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="24" y="36" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="36" y="36" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="48" y="36" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <!-- Row 4 -->
+  <rect x="0"  y="48" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+  <rect x="12" y="48" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="36" y="48" width="9" height="9" rx="1.5" fill="#8B7355"/>
+  <rect x="48" y="48" width="9" height="9" rx="1.5" fill="#DEC9A8"/>
+</svg>

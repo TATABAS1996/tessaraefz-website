@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry Received — Tessarae Hospitality</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --white: #FFFFFF;
+            --warm-white: #FDFAF6;
+            --cream: #F5EDD9;
+            --beige: #DEC9A8;
+            --mid-beige: #C4A882;
+            --dark-beige: #8B7355;
+            --deep: #3C2F1E;
+            --text-dark: #1C1C1C;
+            --text-mid: #6A6A6A;
+            --text-light: #AAAAAA;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: rgba(253,250,246,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(196,168,130,0.25);
+            padding: 22px 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+
+        .logo-mark {
+            display: grid;
+            grid-template-columns: repeat(5, 7px);
+            grid-template-rows: repeat(5, 7px);
+            gap: 2.5px;
+        }
+
+        .t { border-radius: 1.5px; }
+        .t.a { background: var(--dark-beige); }
+        .t.b { background: var(--beige); }
+        .t.x { background: transparent; }
+
+        .logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+        .logo-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px; font-weight: 500;
+            letter-spacing: 0.18em; color: var(--text-dark);
+        }
+
+        .logo-name span { color: var(--dark-beige); }
+
+        .logo-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 8.5px; font-weight: 300;
+            letter-spacing: 0.38em; color: var(--mid-beige);
+            margin-top: 4px; text-transform: uppercase;
+        }
+
+        /* ── MAIN ── */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px;
+        }
+
+        .thankyou-wrap {
+            text-align: center;
+            max-width: 560px;
+        }
+
+        /* Tile mark — larger, centered */
+        .tile-mark {
+            display: grid;
+            grid-template-columns: repeat(5, 14px);
+            grid-template-rows: repeat(5, 14px);
+            gap: 5px;
+            margin: 0 auto 48px;
+            width: fit-content;
+        }
+
+        .tile-mark .t { border-radius: 3px; }
+
+        .eyebrow {
+            font-size: 11px; letter-spacing: 0.32em;
+            text-transform: uppercase; color: var(--dark-beige);
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            display: block;
+            width: 32px; height: 1px;
+            background: var(--dark-beige);
+            margin: 0 auto 24px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(38px, 5vw, 58px);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+        }
+
+        h1 em { font-style: italic; color: var(--dark-beige); }
+
+        .divider {
+            width: 60px; height: 1px;
+            background: var(--beige);
+            margin: 32px auto;
+        }
+
+        p {
+            font-size: 16px; font-weight: 300;
+            line-height: 1.85; color: var(--text-mid);
+            margin-bottom: 48px;
+        }
+
+        .btn-home {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 44px;
+            border: 1px solid var(--dark-beige);
+            color: var(--dark-beige);
+            font-family: 'Inter', sans-serif;
+            font-size: 11.5px; letter-spacing: 0.2em;
+            text-transform: uppercase; text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-home:hover { background: var(--dark-beige); color: var(--white); }
+        .btn-home::before { content: '←'; transition: transform 0.3s; }
+        .btn-home:hover::before { transform: translateX(-4px); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--deep);
+            padding: 44px 64px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        footer .logo-name { color: var(--beige); }
+        footer .logo-sub { color: rgba(196,168,130,0.5); }
+        footer .t.a { background: var(--beige); }
+        footer .t.b { background: rgba(196,168,130,0.4); }
+
+        .f-copy { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; }
+
+        @media (max-width: 700px) {
+            nav { padding: 18px 24px; }
+            footer { padding: 30px 24px; flex-direction: column; gap: 14px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <a href="/" class="logo">
+        <div class="logo-mark">
+            <div class="t a"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t b"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t a"></div>
+            <div class="t a"></div><div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div>
+            <div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t b"></div><div class="t a"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t b"></div>
+        </div>
+        <div class="logo-text">
+            <span class="logo-name">TESS<span>A</span>RAE</span>
+            <span class="logo-sub">Hospitality</span>
+        </div>
+    </a>
+</nav>
+
+<!-- ── MAIN ── -->
+<main>
+    <div class="thankyou-wrap">
+        <div class="tile-mark">
+            <div class="t a"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t b"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t a"></div>
+            <div class="t a"></div><div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div>
+            <div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t b"></div><div class="t a"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t b"></div>
+        </div>
+        <div class="eyebrow">Enquiry Received</div>
+        <h1>Thank You.<br><em>We'll Be in Touch.</em></h1>
+        <div class="divider"></div>
+        <p>Your enquiry has been received. Our team will review your request and respond within 24 hours to begin crafting your perfect experience.</p>
+        <a href="/" class="btn-home">Back to Home</a>
+    </div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <a href="/" class="logo">
+        <div class="logo-mark">
+            <div class="t a"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t b"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t a"></div>
+            <div class="t a"></div><div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div>
+            <div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t b"></div><div class="t a"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t b"></div>
+        </div>
+        <div class="logo-text">
+            <span class="logo-name">TESSARAE</span>
+            <span class="logo-sub">Hospitality</span>
+        </div>
+    </a>
+    <div class="f-copy">© 2026 Tessarae Hospitality. All rights reserved. Worldwide.</div>
+</footer>
+
+</body>
+</html>

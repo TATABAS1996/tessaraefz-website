@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tessarae Hospitality</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --white: #FFFFFF;
+            --warm-white: #FDFAF6;
+            --cream: #F5EDD9;
+            --beige: #DEC9A8;
+            --mid-beige: #C4A882;
+            --dark-beige: #8B7355;
+            --deep: #3C2F1E;
+            --text-dark: #1C1C1C;
+            --text-mid: #6A6A6A;
+            --text-light: #AAAAAA;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(253,250,246,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(196,168,130,0.25);
+            padding: 22px 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+
+        .logo-mark {
+            display: grid;
+            grid-template-columns: repeat(5, 7px);
+            grid-template-rows: repeat(5, 7px);
+            gap: 2.5px;
+        }
+
+        .t { border-radius: 1.5px; }
+        .t.a { background: var(--dark-beige); }
+        .t.b { background: var(--beige); }
+        .t.c { background: var(--cream); border: 1px solid var(--beige); }
+        .t.x { background: transparent; }
+
+        .logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+        .logo-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px; font-weight: 500;
+            letter-spacing: 0.18em; color: var(--text-dark);
+        }
+
+        .logo-name span { color: var(--dark-beige); }
+
+        .logo-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 8.5px; font-weight: 300;
+            letter-spacing: 0.38em; color: var(--mid-beige);
+            margin-top: 4px; text-transform: uppercase;
+        }
+
+        .nav-links { display: flex; gap: 44px; list-style: none; }
+
+        .nav-links a {
+            font-size: 11.5px; font-weight: 400;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--text-mid); text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--dark-beige); }
+
+        .nav-cta {
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+            padding: 13px 30px;
+            border: 1px solid var(--dark-beige); color: var(--dark-beige);
+            text-decoration: none; transition: all 0.3s;
+        }
+
+        .nav-cta:hover { background: var(--dark-beige); color: var(--white); }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            padding: 140px 64px 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
+            position: relative;
+        }
+
+        .hero-left {}
+
+        .hero-eyebrow {
+            display: flex; align-items: center; gap: 14px;
+            font-size: 11px; letter-spacing: 0.32em;
+            text-transform: uppercase; color: var(--dark-beige);
+            margin-bottom: 32px;
+        }
+
+        .hero-eyebrow::before {
+            content: ''; display: block;
+            width: 32px; height: 1px; background: var(--dark-beige);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(46px, 5.5vw, 76px);
+            font-weight: 400; line-height: 1.08;
+            color: var(--text-dark); margin-bottom: 28px;
+        }
+
+        .hero h1 em { font-style: italic; color: var(--dark-beige); }
+
+        .hero-desc {
+            font-size: 15.5px; font-weight: 300;
+            line-height: 1.85; color: var(--text-mid);
+            max-width: 440px; margin-bottom: 52px;
+        }
+
+        .hero-actions { display: flex; align-items: center; gap: 28px; }
+
+        .btn-fill {
+            padding: 18px 46px;
+            background: var(--dark-beige); color: var(--white);
+            text-decoration: none; font-size: 11.5px;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .btn-fill:hover { background: var(--deep); }
+
+        .btn-ghost {
+            font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-mid); text-decoration: none;
+            display: flex; align-items: center; gap: 10px; transition: color 0.3s;
+        }
+
+        .btn-ghost::after { content: '→'; transition: transform 0.3s; }
+        .btn-ghost:hover { color: var(--dark-beige); }
+        .btn-ghost:hover::after { transform: translateX(5px); }
+
+        .hero-right {
+            position: relative;
+            height: 540px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .hero-frame {
+            width: 360px; height: 460px;
+            background: linear-gradient(145deg, var(--cream) 0%, var(--beige) 100%);
+            position: relative;
+        }
+
+        .hero-frame::before {
+            content: '';
+            position: absolute; top: -16px; left: -16px;
+            width: 200px; height: 200px;
+            border: 1px solid var(--beige);
+        }
+
+        .hero-frame::after {
+            content: '';
+            position: absolute; bottom: -16px; right: -16px;
+            width: 140px; height: 140px;
+            background: var(--mid-beige); opacity: 0.25;
+        }
+
+        .hero-badge {
+            position: absolute; bottom: 40px; left: -40px;
+            background: var(--white);
+            border: 1px solid rgba(196,168,130,0.3);
+            padding: 22px 28px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+        }
+
+        .badge-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px; color: var(--dark-beige); line-height: 1;
+        }
+
+        .badge-label {
+            font-size: 10px; letter-spacing: 0.22em;
+            text-transform: uppercase; color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .hero-inner-text {
+            position: absolute; top: 40px; right: -10px;
+            writing-mode: vertical-rl; text-orientation: mixed;
+            font-size: 10px; letter-spacing: 0.28em;
+            text-transform: uppercase; color: var(--mid-beige);
+        }
+
+        /* ── STATS ── */
+        .stats {
+            background: var(--white);
+            border-top: 1px solid rgba(196,168,130,0.2);
+            border-bottom: 1px solid rgba(196,168,130,0.2);
+            display: grid; grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat {
+            padding: 50px 40px; text-align: center;
+            border-right: 1px solid rgba(196,168,130,0.2);
+        }
+
+        .stat:last-child { border-right: none; }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px; font-weight: 400;
+            color: var(--dark-beige); line-height: 1; margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 10.5px; letter-spacing: 0.22em;
+            text-transform: uppercase; color: var(--text-light);
+        }
+
+        /* ── SECTION BASE ── */
+        .section { padding: 110px 64px; }
+
+        .s-eyebrow {
+            font-size: 10.5px; letter-spacing: 0.32em;
+            text-transform: uppercase; color: var(--dark-beige); margin-bottom: 18px;
+        }
+
+        .s-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(34px, 4vw, 52px);
+            font-weight: 400; color: var(--text-dark); line-height: 1.15;
+        }
+
+        .s-title em { font-style: italic; color: var(--dark-beige); }
+
+        /* ── EVENTS ── */
+        .events-section { background: var(--warm-white); }
+
+        .events-header { text-align: center; margin-bottom: 64px; }
+
+        .tabs {
+            display: flex; justify-content: center;
+            border-bottom: 1px solid rgba(196,168,130,0.3);
+            margin-bottom: 56px; gap: 0;
+        }
+
+        .tab {
+            padding: 14px 48px; font-size: 11.5px;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            border: none; background: none;
+            color: var(--text-light); cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px; transition: all 0.3s;
+        }
+
+        .tab.on { color: var(--dark-beige); border-bottom-color: var(--dark-beige); }
+        .tab:hover { color: var(--dark-beige); }
+
+        .tab-panel { display: none; }
+        .tab-panel.on { display: block; }
+
+        .grid-3 {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: rgba(196,168,130,0.2);
+        }
+
+        .ecard {
+            background: var(--warm-white);
+            padding: 48px 38px;
+            transition: background 0.25s, transform 0.25s;
+            cursor: default;
+        }
+
+        .ecard:hover { background: var(--white); }
+
+        .ecard-icon { font-size: 30px; margin-bottom: 22px; }
+
+        .ecard-cat {
+            font-size: 10px; letter-spacing: 0.28em;
+            text-transform: uppercase; color: var(--dark-beige); margin-bottom: 10px;
+        }
+
+        .ecard-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px; font-weight: 400;
+            color: var(--text-dark); margin-bottom: 14px; line-height: 1.3;
+        }
+
+        .ecard-desc {
+            font-size: 13.5px; font-weight: 300;
+            color: var(--text-mid); line-height: 1.75;
+        }
+
+        /* ── EXPERIENCE ── */
+        .exp-section {
+            background: var(--deep); color: var(--white);
+            padding: 110px 64px;
+        }
+
+        .exp-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 100px; align-items: center;
+        }
+
+        .exp-content .s-eyebrow { color: var(--beige); }
+        .exp-content .s-title { color: var(--white); margin-bottom: 30px; }
+
+        .exp-content p {
+            font-size: 15px; font-weight: 300;
+            line-height: 1.9; color: rgba(255,255,255,0.65); margin-bottom: 44px;
+        }
+
+        .perks { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+
+        .perks li {
+            display: flex; align-items: flex-start; gap: 16px;
+            font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6;
+        }
+
+        .perks li::before {
+            content: '';
+            display: block; width: 22px; height: 1px;
+            background: var(--beige); margin-top: 11px; flex-shrink: 0;
+        }
+
+        .exp-tiles {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+        }
+
+        .etile {
+            border: 1px solid rgba(196,168,130,0.18);
+            padding: 30px 24px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            min-height: 160px; transition: border-color 0.3s;
+        }
+
+        .etile:hover { border-color: rgba(196,168,130,0.4); }
+        .etile.wide { grid-column: span 2; min-height: 100px; }
+
+        .etile-label {
+            font-size: 9.5px; letter-spacing: 0.28em;
+            text-transform: uppercase; color: var(--beige); margin-bottom: 6px;
+        }
+
+        .etile-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px; color: var(--white);
+        }
+
+        /* ── CONTACT ── */
+        .contact-section {
+            padding: 110px 64px; background: var(--cream); text-align: center;
+        }
+
+        .contact-section .s-title { margin-bottom: 16px; }
+
+        .contact-section > p {
+            font-size: 15px; color: var(--text-mid);
+            margin-bottom: 64px; line-height: 1.75;
+        }
+
+        .form-wrap { max-width: 580px; margin: 0 auto; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%; padding: 16px 22px;
+            border: 1px solid rgba(139,115,85,0.28);
+            background: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px; color: var(--text-dark);
+            outline: none; transition: border-color 0.3s;
+            -webkit-appearance: none; appearance: none;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder { color: var(--text-light); }
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus { border-color: var(--dark-beige); }
+
+        .contact-form select { margin-bottom: 14px; color: var(--text-mid); cursor: pointer; }
+        .contact-form textarea { height: 130px; resize: none; margin-bottom: 14px; display: block; }
+
+        .form-btn {
+            width: 100%; padding: 18px;
+            background: var(--dark-beige); color: var(--white);
+            border: none; font-family: 'Inter', sans-serif;
+            font-size: 11.5px; letter-spacing: 0.22em;
+            text-transform: uppercase; cursor: pointer; transition: background 0.3s;
+        }
+
+        .form-btn:hover { background: var(--deep); }
+
+        .cinfo {
+            display: flex; justify-content: center; gap: 70px; margin-top: 64px;
+        }
+
+        .ci-label {
+            font-size: 10px; letter-spacing: 0.26em;
+            text-transform: uppercase; color: var(--dark-beige); margin-bottom: 8px;
+        }
+
+        .ci-val {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px; color: var(--text-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--deep);
+            padding: 44px 64px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        footer .logo-name { color: var(--beige); }
+        footer .logo-sub { color: rgba(196,168,130,0.5); }
+        footer .t.a { background: var(--beige); }
+        footer .t.b { background: rgba(196,168,130,0.4); }
+        footer .t.c { background: transparent; border-color: rgba(196,168,130,0.2); }
+
+        .f-copy { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; }
+
+        /* ── DIVIDER ── */
+        hr.soft {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--beige), transparent);
+            margin: 0 64px;
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 18px 24px; }
+            .nav-links, .nav-cta { display: none; }
+            .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+            .hero-right { display: none; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 70px 24px; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .exp-section { padding: 70px 24px; }
+            .exp-grid { grid-template-columns: 1fr; gap: 50px; }
+            .contact-section { padding: 70px 24px; }
+            .form-row { grid-template-columns: 1fr; }
+            .cinfo { flex-direction: column; gap: 28px; }
+            footer { padding: 30px 24px; flex-direction: column; gap: 14px; text-align: center; }
+            hr.soft { margin: 0 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <a href="#" class="logo">
+        <div class="logo-mark">
+            <div class="t a"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t b"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t a"></div>
+            <div class="t a"></div><div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div>
+            <div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t b"></div><div class="t a"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t b"></div>
+        </div>
+        <div class="logo-text">
+            <span class="logo-name">TESS<span>A</span>RAE</span>
+            <span class="logo-sub">Hospitality</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#events">Events</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Enquire Now</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="hero-left">
+        <div class="hero-eyebrow">Premium Hospitality Worldwide</div>
+        <h1>Every Seat,<br>a <em>First Class</em><br>Experience.</h1>
+        <p class="hero-desc">Tessarae Hospitality curates access to the world's most prestigious sporting events and music concerts — placing you exactly where you want to be.</p>
+        <div class="hero-actions">
+            <a href="#events" class="btn-fill">Explore Events</a>
+            <a href="#contact" class="btn-ghost">Get in Touch</a>
+        </div>
+    </div>
+    <div class="hero-right">
+        <div class="hero-frame"></div>
+        <div class="hero-badge">
+            <div class="badge-num">500+</div>
+            <div class="badge-label">Events Worldwide</div>
+        </div>
+        <div class="hero-inner-text">Worldwide · Premium · Exclusive</div>
+    </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats">
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Events Worldwide</div></div>
+    <div class="stat"><div class="stat-num">1.5k+</div><div class="stat-label">Happy Clients</div></div>
+    <div class="stat"><div class="stat-num">60+</div><div class="stat-label">Countries Served</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Satisfaction Rate</div></div>
+</div>
+
+<hr class="soft">
+
+<!-- ── EVENTS ── -->
+<section class="section events-section" id="events">
+    <div class="events-header">
+        <div class="s-eyebrow">Our Portfolio</div>
+        <h2 class="s-title">Iconic Events, <em>Extraordinary</em> Access</h2>
+    </div>
+
+    <div class="tabs">
+        <button class="tab on" onclick="openTab(event,'sports')">Sports</button>
+        <button class="tab" onclick="openTab(event,'music')">Music</button>
+    </div>
+
+    <div id="sports" class="tab-panel on">
+        <div class="grid-3">
+            <div class="ecard"><div class="ecard-icon">⚽</div><div class="ecard-cat">Football</div><div class="ecard-title">FIFA World Cup 2026</div><div class="ecard-desc">USA, Canada & Mexico. The world's most watched sporting event — we secure the finest packages across every host city and venue.</div></div>
+            <div class="ecard"><div class="ecard-icon">🏆</div><div class="ecard-cat">Football</div><div class="ecard-title">UEFA Champions League</div><div class="ecard-desc">The pinnacle of European club football. Unrivalled access to the final and knockout stages, with premium packages tailored to you.</div></div>
+            <div class="ecard"><div class="ecard-icon">🏎️</div><div class="ecard-cat">Motorsport</div><div class="ecard-title">Formula 1 Grand Prix</div><div class="ecard-desc">Premium packages at the most glamorous circuits on the global F1 calendar — experience the pinnacle of motorsport up close.</div></div>
+            <div class="ecard"><div class="ecard-icon">🎾</div><div class="ecard-cat">Tennis</div><div class="ecard-title">Grand Slam Tournaments</div><div class="ecard-desc">Premium access at Wimbledon, Roland Garros, the US Open and Australian Open — with full hospitality packages.</div></div>
+            <div class="ecard"><div class="ecard-icon">🏀</div><div class="ecard-cat">Basketball</div><div class="ecard-title">NBA Finals & All-Star</div><div class="ecard-desc">Premium suites and the best seats at the most electrifying moments in professional basketball, from the regular season to the finals.</div></div>
+            <div class="ecard"><div class="ecard-icon">🥊</div><div class="ecard-cat">Combat Sports</div><div class="ecard-title">World Championship Bouts</div><div class="ecard-desc">Premium seats at the defining boxing and MMA events, from Las Vegas to London, Riyadh and beyond.</div></div>
+        </div>
+    </div>
+
+    <div id="music" class="tab-panel">
+        <div class="grid-3">
+            <div class="ecard"><div class="ecard-icon">🎸</div><div class="ecard-cat">Rock</div><div class="ecard-title">Oasis — Reunion Tour</div><div class="ecard-desc">The most anticipated reunion in rock history. Front-row access and premium packages for the Gallagher brothers' triumphant return.</div></div>
+            <div class="ecard"><div class="ecard-icon">✨</div><div class="ecard-cat">Pop</div><div class="ecard-title">Taylor Swift — The Eras Tour</div><div class="ecard-desc">A once-in-a-generation experience. Premium access and the best seats for the world's biggest artist.</div></div>
+            <div class="ecard"><div class="ecard-icon">🌟</div><div class="ecard-cat">Alternative</div><div class="ecard-title">Coldplay — World Tour</div><div class="ecard-desc">A breathtaking visual and musical spectacle. Secure the best seats with full hospitality for Coldplay's landmark global tour.</div></div>
+            <div class="ecard"><div class="ecard-icon">🎵</div><div class="ecard-cat">R&B / Soul</div><div class="ecard-title">Bruno Mars</div><div class="ecard-desc">An unforgettable night with one of the greatest live performers of his generation. VIP treatment from arrival to the final encore.</div></div>
+            <div class="ecard"><div class="ecard-icon">🔥</div><div class="ecard-cat">Latin</div><div class="ecard-title">Bad Bunny — World Hottest Tour</div><div class="ecard-desc">The global reggaeton phenomenon. Front-row packages for the world's most-streamed artist.</div></div>
+            <div class="ecard"><div class="ecard-icon">🎤</div><div class="ecard-cat">Bespoke</div><div class="ecard-title">Any Artist, Any Venue</div><div class="ecard-desc">Any artist, any venue, anywhere in the world. We create tailored hospitality experiences for any concert or live music event.</div></div>
+        </div>
+    </div>
+</section>
+
+<hr class="soft">
+
+<!-- ── EXPERIENCE ── -->
+<section class="exp-section" id="experience">
+    <div class="exp-grid">
+        <div class="exp-content">
+            <div class="s-eyebrow">The Tessarae Difference</div>
+            <h2 class="s-title">Hospitality,<br>Elevated to an<br><em>Art Form.</em></h2>
+            <p>We don't just secure tickets. We craft complete experiences — from the moment you enquire to the moment the final curtain falls. Our worldwide network ensures access that simply isn't available elsewhere.</p>
+            <ul class="perks">
+                <li>Dedicated personal concierge throughout your entire experience</li>
+                <li>Bespoke travel and five-star accommodation packages</li>
+                <li>Premium seating and VIP privileges at every event</li>
+                <li>Global reach across 60+ countries, every continent</li>
+            </ul>
+        </div>
+        <div class="exp-tiles">
+            <div class="etile wide"><div class="etile-label">Our Promise</div><div class="etile-title">Uncompromising Excellence</div></div>
+            <div class="etile"><div class="etile-label">Reach</div><div class="etile-title">Worldwide</div></div>
+            <div class="etile"><div class="etile-label">Always</div><div class="etile-title">VIP Access</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact">
+    <div class="s-eyebrow">Get In Touch</div>
+    <h2 class="s-title">Let's Create Your<br><em>Perfect Experience.</em></h2>
+    <p>Tell us what you have in mind. Our team will curate an experience tailored precisely to your preferences.</p>
+
+    <div class="form-wrap">
+        <form class="contact-form" action="https://formspree.io/f/mqeygpgy" method="POST">
+            <input type="hidden" name="_next" value="https://tessaraefz.com/thankyou.html">
+            <input type="text" name="_gotcha" style="display:none">
+            <div class="form-row">
+                <input type="text" name="name" placeholder="Your Name">
+                <input type="email" name="email" placeholder="Email Address">
+            </div>
+            <select name="event">
+                <option value="" disabled selected>Event Interest</option>
+                <option>FIFA World Cup 2026</option>
+                <option>UEFA Champions League</option>
+                <option>Bruno Mars</option>
+                <option>Bad Bunny</option>
+                <option>Formula 1 Grand Prix</option>
+                <option>Other / Multiple Events</option>
+            </select>
+            <textarea name="message" placeholder="Tell us about your ideal experience..."></textarea>
+            <button class="form-btn">Send Enquiry</button>
+        </form>
+    </div>
+
+    <div class="cinfo">
+        <div class="contact-item"><div class="ci-label">Email</div><div class="ci-val">contact@tessaraefz.com</div></div>
+        <div class="contact-item"><div class="ci-label">Availability</div><div class="ci-val">Worldwide</div></div>
+        <div class="contact-item"><div class="ci-label">Response Time</div><div class="ci-val">Within 24 Hours</div></div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <a href="#" class="logo">
+        <div class="logo-mark">
+            <div class="t a"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t b"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t a"></div>
+            <div class="t a"></div><div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div>
+            <div class="t x"></div><div class="t b"></div><div class="t a"></div><div class="t b"></div><div class="t a"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t b"></div>
+        </div>
+        <div class="logo-text">
+            <span class="logo-name">TESSARAE</span>
+            <span class="logo-sub">Hospitality</span>
+        </div>
+    </a>
+    <div class="f-copy">© 2026 Tessarae Hospitality. All rights reserved. Worldwide.</div>
+</footer>
+
+<script>
+function openTab(e, id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('on'));
+    e.target.classList.add('on');
+    document.getElementById(id).classList.add('on');
+}
+</script>
+</body>
+</html>

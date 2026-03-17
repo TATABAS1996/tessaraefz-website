@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tessarae Hospitality — Design 2: Noir Prestige</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0C0B09;
+            --bg2: #141210;
+            --card: #181614;
+            --gold: #C9A87C;
+            --gold-light: #DEC9A8;
+            --gold-dim: rgba(201,168,124,0.35);
+            --beige: #F0E4CC;
+            --white: #FDFAF6;
+            --muted: rgba(253,250,246,0.5);
+            --dim: rgba(253,250,246,0.2);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(12,11,9,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(201,168,124,0.12);
+            padding: 22px 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+
+        .logo-mark {
+            width: 40px; height: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 3px;
+        }
+
+        .t { border-radius: 2px; transition: opacity 0.4s; }
+        .t.a { background: var(--gold); }
+        .t.b { background: rgba(201,168,124,0.35); }
+        .t.x { background: transparent; border: 1px solid rgba(201,168,124,0.12); }
+
+        .logo:hover .t.a { opacity: 0.7; }
+
+        .logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+        .logo-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px; font-weight: 400;
+            letter-spacing: 0.22em; color: var(--white);
+        }
+
+        .logo-sub {
+            font-size: 8px; font-weight: 300;
+            letter-spacing: 0.42em; color: var(--gold);
+            margin-top: 5px; text-transform: uppercase;
+        }
+
+        .nav-links { display: flex; gap: 44px; list-style: none; }
+
+        .nav-links a {
+            font-size: 11px; font-weight: 400;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--muted); text-decoration: none; transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-cta {
+            font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+            padding: 13px 32px;
+            border: 1px solid var(--gold-dim); color: var(--gold);
+            text-decoration: none; transition: all 0.3s;
+        }
+
+        .nav-cta:hover { background: var(--gold); color: var(--bg); }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center;
+            padding: 140px 64px 100px;
+            position: relative; overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 60% 60% at 50% 40%, rgba(201,168,124,0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,124,0.04) 0%, transparent 60%);
+        }
+
+        .hero-lines {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(201,168,124,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201,168,124,0.04) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 860px; }
+
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 12px;
+            font-size: 10.5px; letter-spacing: 0.36em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 36px;
+            padding: 10px 24px;
+            border: 1px solid rgba(201,168,124,0.2);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(52px, 7vw, 96px);
+            font-weight: 300; line-height: 1.02;
+            color: var(--white); margin-bottom: 30px;
+            letter-spacing: 0.02em;
+        }
+
+        .hero h1 em { font-style: italic; color: var(--gold); }
+
+        .hero-desc {
+            font-size: 15px; font-weight: 300;
+            line-height: 1.9; color: var(--muted);
+            max-width: 540px; margin: 0 auto 56px;
+        }
+
+        .hero-actions { display: flex; align-items: center; justify-content: center; gap: 20px; }
+
+        .btn-gold {
+            padding: 18px 52px;
+            background: var(--gold); color: var(--bg);
+            text-decoration: none; font-size: 11px;
+            letter-spacing: 0.24em; text-transform: uppercase;
+            font-weight: 500; transition: all 0.3s;
+        }
+
+        .btn-gold:hover { background: var(--beige); }
+
+        .btn-outline {
+            padding: 18px 40px;
+            border: 1px solid var(--gold-dim); color: var(--gold);
+            text-decoration: none; font-size: 11px;
+            letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.3s;
+        }
+
+        .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,124,0.06); }
+
+        .hero-scroll {
+            position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+            font-size: 9.5px; letter-spacing: 0.32em; text-transform: uppercase;
+            color: var(--dim);
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+        }
+
+        .hero-scroll::after {
+            content: '';
+            display: block; width: 1px; height: 40px;
+            background: linear-gradient(to bottom, var(--gold-dim), transparent);
+        }
+
+        /* ── MARQUEE ── */
+        .marquee-strip {
+            background: var(--gold);
+            overflow: hidden; padding: 16px 0;
+        }
+
+        .marquee-track {
+            display: flex; gap: 0;
+            animation: marquee 28s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee-item {
+            font-size: 11px; letter-spacing: 0.28em;
+            text-transform: uppercase; color: var(--bg);
+            font-weight: 500;
+            padding: 0 44px;
+            display: flex; align-items: center; gap: 44px;
+        }
+
+        .marquee-item::after { content: '◆'; font-size: 6px; opacity: 0.5; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── STATS ── */
+        .stats {
+            border-top: 1px solid rgba(201,168,124,0.1);
+            border-bottom: 1px solid rgba(201,168,124,0.1);
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            background: var(--bg2);
+        }
+
+        .stat {
+            padding: 52px 40px; text-align: center;
+            border-right: 1px solid rgba(201,168,124,0.1);
+            position: relative; overflow: hidden;
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+            opacity: 0; transition: opacity 0.4s;
+        }
+
+        .stat:hover::before { opacity: 1; }
+
+        .stat:last-child { border-right: none; }
+
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 50px; font-weight: 300;
+            color: var(--gold); line-height: 1; margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 10px; letter-spacing: 0.26em;
+            text-transform: uppercase; color: var(--dim);
+        }
+
+        /* ── SECTION ── */
+        .section { padding: 110px 64px; }
+
+        .s-eyebrow {
+            font-size: 10px; letter-spacing: 0.38em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+        }
+
+        .s-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 4.5vw, 58px);
+            font-weight: 300; color: var(--white); line-height: 1.1;
+        }
+
+        .s-title em { font-style: italic; color: var(--gold); }
+
+        /* ── EVENTS ── */
+        .events-section { background: var(--bg); }
+
+        .events-header { text-align: center; margin-bottom: 70px; }
+        .events-header .s-title { margin-top: 10px; }
+
+        .tabs {
+            display: flex; justify-content: center;
+            border-bottom: 1px solid rgba(201,168,124,0.15);
+            margin-bottom: 56px;
+        }
+
+        .tab {
+            padding: 14px 52px; font-size: 11px;
+            letter-spacing: 0.22em; text-transform: uppercase;
+            border: none; background: none;
+            color: var(--dim); cursor: pointer;
+            border-bottom: 1px solid transparent;
+            margin-bottom: -1px; transition: all 0.3s;
+        }
+
+        .tab.on { color: var(--gold); border-bottom-color: var(--gold); }
+        .tab:hover { color: var(--gold-light); }
+
+        .tab-panel { display: none; }
+        .tab-panel.on { display: block; }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,124,0.08); }
+
+        .ecard {
+            background: var(--card);
+            padding: 52px 40px;
+            transition: background 0.3s;
+            position: relative; overflow: hidden;
+        }
+
+        .ecard::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+            transform: scaleX(0); transition: transform 0.4s;
+        }
+
+        .ecard:hover { background: #1E1A16; }
+        .ecard:hover::after { transform: scaleX(1); }
+
+        .ecard-icon { font-size: 26px; margin-bottom: 24px; }
+
+        .ecard-cat {
+            font-size: 9.5px; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+        }
+
+        .ecard-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px; font-weight: 400;
+            color: var(--white); margin-bottom: 16px; line-height: 1.25;
+        }
+
+        .ecard-desc {
+            font-size: 13.5px; font-weight: 300;
+            color: var(--muted); line-height: 1.8;
+        }
+
+        /* ── EXPERIENCE ── */
+        .exp-section { background: var(--bg2); padding: 110px 64px; }
+
+        .exp-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 100px; align-items: center;
+        }
+
+        .exp-content .s-title { margin-bottom: 28px; }
+
+        .exp-content > p {
+            font-size: 14.5px; font-weight: 300;
+            line-height: 1.95; color: var(--muted); margin-bottom: 44px;
+        }
+
+        .perks { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+
+        .perks li {
+            display: flex; align-items: flex-start; gap: 18px;
+            font-size: 14px; color: var(--muted); line-height: 1.65;
+        }
+
+        .perks li .perk-dot {
+            width: 6px; height: 6px;
+            background: var(--gold); border-radius: 50%;
+            flex-shrink: 0; margin-top: 8px;
+        }
+
+        .exp-visual {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+        }
+
+        .vis-tile {
+            border: 1px solid rgba(201,168,124,0.12);
+            padding: 36px 28px; min-height: 170px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .vis-tile:hover {
+            border-color: rgba(201,168,124,0.3);
+            background: rgba(201,168,124,0.03);
+        }
+
+        .vis-tile.wide { grid-column: span 2; min-height: 110px; }
+
+        .vis-label {
+            font-size: 9px; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+        }
+
+        .vis-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px; color: var(--white);
+        }
+
+        /* ── CONTACT ── */
+        .contact-section { padding: 110px 64px; background: var(--bg); text-align: center; }
+
+        .contact-section .s-title { margin-top: 14px; margin-bottom: 20px; }
+
+        .contact-section > p {
+            font-size: 15px; color: var(--muted);
+            margin-bottom: 64px; line-height: 1.8;
+        }
+
+        .form-wrap { max-width: 560px; margin: 0 auto; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%; padding: 17px 22px;
+            border: 1px solid rgba(201,168,124,0.18);
+            background: var(--card);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px; color: var(--white);
+            outline: none; transition: border-color 0.3s;
+            -webkit-appearance: none; appearance: none;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder { color: rgba(253,250,246,0.22); }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus { border-color: var(--gold); }
+
+        .contact-form select { margin-bottom: 12px; color: rgba(253,250,246,0.5); cursor: pointer; }
+        .contact-form select option { background: #181614; color: var(--white); }
+
+        .contact-form textarea { height: 130px; resize: none; margin-bottom: 12px; display: block; }
+
+        .form-btn {
+            width: 100%; padding: 18px;
+            background: var(--gold); color: var(--bg);
+            border: none; font-family: 'Inter', sans-serif;
+            font-size: 11px; letter-spacing: 0.26em;
+            text-transform: uppercase; font-weight: 500;
+            cursor: pointer; transition: background 0.3s;
+        }
+
+        .form-btn:hover { background: var(--beige); }
+
+        .cinfo {
+            display: flex; justify-content: center; gap: 80px; margin-top: 64px;
+        }
+
+        .ci-label {
+            font-size: 9.5px; letter-spacing: 0.32em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+        }
+
+        .ci-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px; color: var(--white); font-weight: 300;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #080807;
+            border-top: 1px solid rgba(201,168,124,0.1);
+            padding: 44px 64px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .f-copy { font-size: 11.5px; color: var(--dim); letter-spacing: 0.05em; }
+
+        @media (max-width: 900px) {
+            nav { padding: 18px 24px; }
+            .nav-links, .nav-cta { display: none; }
+            .hero { padding: 120px 24px 80px; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 70px 24px; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .exp-section { padding: 70px 24px; }
+            .exp-grid { grid-template-columns: 1fr; gap: 50px; }
+            .contact-section { padding: 70px 24px; }
+            .form-row { grid-template-columns: 1fr; }
+            .cinfo { flex-direction: column; gap: 28px; }
+            footer { padding: 30px 24px; flex-direction: column; gap: 14px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <a href="#" class="logo">
+        <div class="logo-mark">
+            <div class="t a"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t b"></div><div class="t a"></div>
+            <div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t b"></div>
+            <div class="t x"></div><div class="t a"></div><div class="t b"></div><div class="t a"></div>
+        </div>
+        <div class="logo-text">
+            <span class="logo-name">TESSARAE</span>
+            <span class="logo-sub">Hospitality</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#events">Events</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Enquire Now</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-content">
+        <div class="hero-tag">Premium Hospitality · Worldwide</div>
+        <h1>The World's<br>Greatest Events,<br><em>Your Way.</em></h1>
+        <p class="hero-desc">From pitch-side at the FIFA World Cup to the front row of the Eras Tour — Tessarae Hospitality delivers access, luxury, and unforgettable moments.</p>
+        <div class="hero-actions">
+            <a href="#events" class="btn-gold">Explore Events</a>
+            <a href="#contact" class="btn-outline">Get in Touch</a>
+        </div>
+    </div>
+    <div class="hero-scroll">Scroll to Discover</div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-strip">
+    <div class="marquee-track">
+        <div class="marquee-item">FIFA World Cup 2026</div>
+        <div class="marquee-item">UEFA Champions League</div>
+        <div class="marquee-item">Oasis Reunion Tour</div>
+        <div class="marquee-item">Taylor Swift</div>
+        <div class="marquee-item">Coldplay</div>
+        <div class="marquee-item">Bruno Mars</div>
+        <div class="marquee-item">Bad Bunny</div>
+        <div class="marquee-item">Formula 1</div>
+        <div class="marquee-item">Wimbledon</div>
+        <div class="marquee-item">NBA Finals</div>
+        <!-- duplicate for seamless loop -->
+        <div class="marquee-item">FIFA World Cup 2026</div>
+        <div class="marquee-item">UEFA Champions League</div>
+        <div class="marquee-item">Oasis Reunion Tour</div>
+        <div class="marquee-item">Taylor Swift</div>
+        <div class="marquee-item">Coldplay</div>
+        <div class="marquee-item">Bruno Mars</div>
+        <div class="marquee-item">Bad Bunny</div>
+        <div class="marquee-item">Formula 1</div>
+        <div class="marquee-item">Wimbledon</div>
+        <div class="marquee-item">NBA Finals</div>
+    </div>
+</div>
+
+<!-- ── STATS ── -->
+<div class="stats">
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Events Worldwide</div></div>
+    <div class="stat"><div class="stat-num">12k+</div><div class="stat-label">Happy Clients</div></div>
+    <div class="stat"><div class="stat-num">60+</div><div class="stat-label">Countries Served</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Satisfaction Rate</div></div>
+</div>
+
+<!-- ── EVENTS ── -->
+<section class="section events-section" id="events">
+    <div class="events-header">
+        <div class="s-eyebrow">Our Portfolio</div>
+        <h2 class="s-title">Iconic Events, <em>Extraordinary</em> Access</h2>
+    </div>
+
+    <div class="tabs">
+        <button class="tab on" onclick="openTab(event,'sports')">Sports</button>
+        <button class="tab" onclick="openTab(event,'music')">Music</button>
+    </div>
+
+    <div id="sports" class="tab-panel on">
+        <div class="grid-3">
+            <div class="ecard"><div class="ecard-icon">⚽</div><div class="ecard-cat">Football</div><div class="ecard-title">FIFA World Cup 2026</div><div class="ecard-desc">USA, Canada & Mexico. The world's most watched sporting event — we secure the finest packages across every host city and venue.</div></div>
+            <div class="ecard"><div class="ecard-icon">🏆</div><div class="ecard-cat">Football</div><div class="ecard-title">UEFA Champions League</div><div class="ecard-desc">The pinnacle of European club football. VIP hospitality suites, premium dining, and unrivalled access to the final and knockout stages.</div></div>
+            <div class="ecard"><div class="ecard-icon">🏎️</div><div class="ecard-cat">Motorsport</div><div class="ecard-title">Formula 1 Grand Prix</div><div class="ecard-desc">Paddock Club access and trackside hospitality at the most glamorous circuits on the global F1 calendar.</div></div>
+            <div class="ecard"><div class="ecard-icon">🎾</div><div class="ecard-cat">Tennis</div><div class="ecard-title">Grand Slam Tournaments</div><div class="ecard-desc">Court-side seats at Wimbledon, Roland Garros, the US Open and Australian Open — with full hospitality packages.</div></div>
+            <div class="ecard"><div class="ecard-icon">🏀</div><div class="ecard-cat">Basketball</div><div class="ecard-title">NBA Finals & All-Star</div><div class="ecard-desc">Courtside seats and premium suites at the most electrifying moments in professional basketball, from the regular season to the finals.</div></div>
+            <div class="ecard"><div class="ecard-icon">🥊</div><div class="ecard-cat">Combat Sports</div><div class="ecard-title">World Championship Bouts</div><div class="ecard-desc">Ringside seats at defining boxing and MMA events, from Las Vegas to London, Riyadh and beyond.</div></div>
+        </div>
+    </div>
+
+    <div id="music" class="tab-panel">
+        <div class="grid-3">
+            <div class="ecard"><div class="ecard-icon">🎸</div><div class="ecard-cat">Rock</div><div class="ecard-title">Oasis — Reunion Tour</div><div class="ecard-desc">The most anticipated reunion in rock history. Front-row access and exclusive hospitality for the Gallagher brothers' triumphant return.</div></div>
+            <div class="ecard"><div class="ecard-icon">✨</div><div class="ecard-cat">Pop</div><div class="ecard-title">Taylor Swift — The Eras Tour</div><div class="ecard-desc">A once-in-a-generation experience. Premium access, backstage passes, and VIP hospitality for the world's biggest artist.</div></div>
+            <div class="ecard"><div class="ecard-icon">🌟</div><div class="ecard-cat">Alternative</div><div class="ecard-title">Coldplay — World Tour</div><div class="ecard-desc">A breathtaking visual spectacle. Secure the best seats with full hospitality for Coldplay's landmark global tour.</div></div>
+            <div class="ecard"><div class="ecard-icon">🎵</div><div class="ecard-cat">R&B / Soul</div><div class="ecard-title">Bruno Mars</div><div class="ecard-desc">An unforgettable night with one of the greatest live performers of his generation. VIP treatment from arrival to the final encore.</div></div>
+            <div class="ecard"><div class="ecard-icon">🔥</div><div class="ecard-cat">Latin</div><div class="ecard-title">Bad Bunny — World Tour</div><div class="ecard-desc">The global reggaeton phenomenon. Front-row packages and exclusive hospitality for the world's most-streamed artist.</div></div>
+            <div class="ecard"><div class="ecard-icon">🎤</div><div class="ecard-cat">Bespoke</div><div class="ecard-title">Any Artist, Any Venue</div><div class="ecard-desc">Any artist, any venue, anywhere in the world. We create tailored hospitality experiences for any concert or live music event.</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section class="exp-section" id="experience">
+    <div class="exp-grid">
+        <div class="exp-content">
+            <div class="s-eyebrow">The Tessarae Difference</div>
+            <h2 class="s-title">Crafted for<br>the <em>Few.</em></h2>
+            <p>We don't just secure tickets. We architect unforgettable experiences — from the first enquiry to the final bow. Our global network delivers access that simply isn't available elsewhere.</p>
+            <ul class="perks">
+                <li><span class="perk-dot"></span>Premium hospitality suites with fine dining at every major event</li>
+                <li><span class="perk-dot"></span>Dedicated personal concierge throughout your entire experience</li>
+                <li><span class="perk-dot"></span>Bespoke travel and five-star accommodation packages</li>
+                <li><span class="perk-dot"></span>Exclusive behind-the-scenes access and VIP privileges</li>
+                <li><span class="perk-dot"></span>Global reach across 60+ countries, every continent</li>
+            </ul>
+        </div>
+        <div class="exp-visual">
+            <div class="vis-tile wide"><div class="vis-label">Our Promise</div><div class="vis-title">Uncompromising Excellence</div></div>
+            <div class="vis-tile"><div class="vis-label">Reach</div><div class="vis-title">Worldwide</div></div>
+            <div class="vis-tile"><div class="vis-label">Always</div><div class="vis-title">VIP Access</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact">
+    <div class="s-eyebrow">Begin Your Journey</div>
+    <h2 class="s-title">Reserve Your<br><em>Experience.</em></h2>
+    <p>Tell us your vision. Our team will craft something extraordinary,<br>tailored precisely to you.</p>
+
+    <div class="form-wrap">
+        <form class="contact-form" onsubmit="return false">
+            <div class="form-row">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Email Address">
+            </div>
+            <select>
+                <option value="" disabled selected>Event Interest</option>
+                <option>FIFA World Cup 2026</option>
+                <option>UEFA Champions League</option>
+                <option>Oasis Reunion Tour</option>
+                <option>Taylor Swift — The Eras Tour</option>
+                <option>Coldplay World Tour</option>
+                <option>Bruno Mars</option>
+                <option>Bad Bunny</option>
+                <option>Formula 1 Grand Prix</option>
+                <option>Other / Multiple Events</option>
+            </select>
+            <textarea placeholder="Tell us about your ideal experience..."></textarea>
+            <button class="form-btn">Send Enquiry</button>
+        </form>
+    </div>
+
+    <div class="cinfo">
+        <div><div class="ci-label">Email</div><div class="ci-val">contact@tessaraefz.com</div></div>
+        <div><div class="ci-label">Availability</div><div class="ci-val">Worldwide</div></div>
+        <div><div class="ci-label">Response</div><div class="ci-val">Within 24 Hours</div></div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <a href="#" class="logo">
+        <div class="logo-mark">
+            <div class="t a"></div><div class="t b"></div><div class="t a"></div><div class="t x"></div>
+            <div class="t b"></div><div class="t a"></div><div class="t b"></div><div class="t a"></div>
+            <div class="t a"></div><div class="t x"></div><div class="t a"></div><div class="t b"></div>
+            <div class="t x"></div><div class="t a"></div><div class="t b"></div><div class="t a"></div>
+        </div>
+        <div class="logo-text">
+            <span class="logo-name">TESSARAE</span>
+            <span class="logo-sub">Hospitality</span>
+        </div>
+    </a>
+    <div class="f-copy">© 2026 Tessarae Hospitality. All rights reserved.</div>
+</footer>
+
+<script>
+function openTab(e, id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('on'));
+    e.target.classList.add('on');
+    document.getElementById(id).classList.add('on');
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+});
+</script>
+</body>
+</html>
